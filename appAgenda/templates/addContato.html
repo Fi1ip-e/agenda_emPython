@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Formulário de Contato</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to right, #836FFF, #FFDEAD);
+        }
+        .DivFormulario {
+            margin-top: 5rem;
+        }
+       .titulo {
+        text-align: center;
+       }
+        .Formulario {
+            
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 3rem;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .Campos[type="text"],
+        .Campos[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        section {
+            text-align: center;
+            width: 50%;
+            
+            margin: auto;
+        }
+        
+        .btnCadastrar, .btnVoltar{
+            background-color: #0078d4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="DivFormulario">
+        
+        <h1 class="titulo">Cadastrar novo Contato</h1>
+        <section>
+            <button class="btnVoltar">
+                <a class="linkPagina" href="/">Voltar ao início</a>
+            </button>
+        </section>
+        <form class="Formulario" action="{% url 'contato' %}" method="post">
+            {% csrf_token %}
+            <input class="Campos" type="text" name="nome" id="nome" placeholder="Nome" required>
+            <input class="Campos" type="email" name="email" id="email" placeholder="Email" required>
+            <input class="Campos" type="text" name="contato" id="contato" placeholder="Contato" required>
+            <button class="btnCadastrar" type="submit">Cadastrar</button>
+        </form>
+        
+    </div>
+</body>
+
+</html>
